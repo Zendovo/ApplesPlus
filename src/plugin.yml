@@ -1,0 +1,8 @@
+name: ApplesPlus
+author: z3ndovo
+main: me.z3ndovo.applesplus.Core
+version: 1.0
+description: Allows users to craft a different Apples by surrounding a apple with gold ingots or diamonds.
+commands:
+  giveapple:
+    Description: Get an apple :D.
