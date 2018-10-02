@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -22,7 +23,7 @@ public class Interface implements Listener{
 		Player p = e.getPlayer();
 		ItemStack item = p.getItemInHand();
 		if ((item.getType() != Material.AIR) && item.getItemMeta().hasLore()) {
-		if (item.getType() == (Material.SKULL_ITEM) /*&& (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK)*/) {
+		if (item.getType() == (Material.SKULL_ITEM) && (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR)) {
 			for (String key : config.getConfigurationSection("apples").getKeys(false)) {
 				if (item.getItemMeta().getLore().contains(ChatColor.translateAlternateColorCodes('&', config.getString("apples." + key + ".ilore")))) {
 					for(String effectString : config.getStringList("apples." + key + ".effects")) {
